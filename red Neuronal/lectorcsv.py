@@ -25,6 +25,20 @@ class Lector:
                 
         return mtx
         
+    def leer_lineas_num_desde_hasta(self,desde,hasta,separetor):
+        mtx=[]
+        i=0
+        with open(self.path,"r") as archivo:
+            row=[]
+            for line in archivo:
+                if(i<hasta and i>=desde):
+                    row=line.split(separetor)
+                    row=vec_string_2_vec_float(row)
+                    mtx.append(row)
+                i+=1
+        return mtx
+            
+
     def leer_lineas_num(self,separetor):
         mtx=[]
         with open(self.path,"r") as archivo:
